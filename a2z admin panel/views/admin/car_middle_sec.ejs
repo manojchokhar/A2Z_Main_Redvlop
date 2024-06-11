@@ -1,0 +1,77 @@
+<%- include('navbar.ejs') %>
+
+<section>
+
+<div class="container pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/save_midSec" method="post" enctype="multipart/form-data">
+<div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+    <div class="row">
+        <div class="pt-3  col-md-12 mt-2 mb-5">
+            <h1 class="text-primary  text-center">Middle Section</h1>
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Title
+            <input type="text" required name="middle_title" class="form-control bg-dark">
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Logo Link
+            <input type="text" required name="middle_logo" class="form-control bg-dark">
+        </div>
+
+
+        <div class="col-md-12 mt-5 text-center">
+            <button class="btn btn-md text-white " style="background-color:red ";>Save Explore</button>
+        </div>
+
+    </div>
+
+</div>
+</form>
+</div>
+<div class="container p-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+<div class="row">
+    <div class="col-md-12">
+    
+        <h1 class="text-primary  text-center mb-4">Middle Section</h1>
+
+        <table class="table table-lg border shadow">
+            <tr class="text-center">
+                <th>Action</th>
+                <th>SN</th>
+                <th>Title</th>
+                <th>Logo</th>
+            </tr>
+
+            <%
+            for(i=0;i<career_data.length;i++) { %>
+                
+            <tr class="text-center">
+                <td>
+                    <a href="/admin/edit_car_mid_sec/<%=career_data[i].car_mid_sec_id%>">
+                        <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+
+                    </a>
+
+                    <a href="/admin/delete_car_mid_sec/<%=career_data[i].car_mid_sec_id%>" onclick="return confirm('Sure,Delete')">
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                       
+                    </a>
+                </td>
+
+                <td><%=i+1%></td>
+                <td><%=career_data[i].middle_title%></td>
+
+                <td><i class="<%=career_data[i].middle_logo%>" style="font-size: 30px;"></i></td>
+            </tr>
+
+           <% } %>
+         
+      
+        </table>
+    </div>
+</div>
+</div>
+</section>
+
+
+<%- include('footer.ejs') %>

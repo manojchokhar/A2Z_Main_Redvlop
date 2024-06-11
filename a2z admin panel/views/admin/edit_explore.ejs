@@ -1,0 +1,50 @@
+<%- include('navbar.ejs') %>
+
+<section>
+
+<div class="container pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/update_explore" method="post" enctype="multipart/form-data">
+<div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+    <div class="row">
+        <div class="pt-3  col-md-12 mt-2 mb-5">
+            <input type="hidden" name="explore_id" value="<%=explore_data[0].explore_id%>">
+            <input type="hidden" name="current_image" value="<%= explore_data[0].exp_card_img %>">
+
+            <h1 class="text-primary  text-center">Edit Explore Section</h1>
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Explore Title
+            <input type="text" name="explore_title" class="form-control" value="<%=explore_data[0].explore_title%>">
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Explore Description
+            <input type="text" required name="explore_desc" class="form-control bg-dark" value="<%=explore_data[0].explore_desc%>">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Explore Card Image
+            <input type="file" required name="exp_card_img" class="form-control bg-dark">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2 text-center">
+           <img src="/img/<%=explore_data[0].exp_card_img%>" alt="" style="height: 80px; width: 80px;">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Explore Card Title
+            <input type="text" required name="exp_card_title" class="form-control bg-dark" value="<%=explore_data[0].exp_card_title%>">
+        </div>
+
+        <div class="col-md-12 mt-5 text-center">
+            <button class="btn btn-md text-white " style="background-color:red ";>Update Explore</button>
+        </div>
+    </div>
+
+</div>
+</form>
+</div>
+
+</section>
+
+
+<%- include('footer.ejs') %>

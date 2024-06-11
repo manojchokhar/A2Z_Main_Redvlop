@@ -1,0 +1,32 @@
+<%- include('navbar.ejs') %>
+<section>
+    <div class="container pb-5 pt-5" style="width: 90%;">
+      <form action="/admin/update_About_client_review_Information" method="post" enctype="multipart/form-data">
+        <div class="container p-5 bg-secondary navbar-dark" style="box-shadow: 0px 5px 10px red;">
+           <div class="row">
+               <div class="col-md-12 mt-2 mb-5 pt-3">
+                <h1 class="text-primary text-center"> Edit Client Review Section</h1>
+               </div>
+               <div class="col-md-6 mt-2 pt-3">
+                   Client name
+                   <input type="text" name="Edit_Client_name" class="form-control" value="<%=client_name%>">
+               </div>
+               <div class="col-md-6 mt-2 pt-3">
+                 Client Post(work)
+                <input type="text"  name="Edit_Client_post" class="form-control" value="<%=client_post%>">
+            </div>
+            <div class="col-md-6 mt-2 pt-3">
+                Client Review(description)
+                <input type="text"  name="Edit_Client_desc" class="form-control" value="<%=client_review_desc%>">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                <input type="hidden"  name="Edit_Client_id" class="form-control" value="<%=client_id%>">
+            </div>
+            <div class="col-md-12 mt-5 text-center">
+                <button class="btn btn-md text-white" style="background-color: red;">Update Client Review Information</button>
+            </div>
+           </div>
+        </div>
+      </form>
+    </div>
+<%- include('footer.ejs') %>

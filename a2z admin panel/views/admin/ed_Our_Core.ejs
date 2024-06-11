@@ -1,0 +1,36 @@
+<%- include('navbar.ejs') %>
+
+<section>
+    <div class="container  pb-5 pt-5 " style="width: 90%;">
+        <form action="/admin/update_About_Our_Core" method="post" enctype="multipart/form-data">
+            <div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+                <div class="row">
+                    <div class="pt-3  col-md-12 mt-2 mb-5">
+                        <h1 class="text-primary  text-center">Edit Our Core Section</h1>
+                    </div>
+                    <div class="pt-3  col-md-6 mt-2">
+                        Our Vision Title
+                        <input type="text" required name="Edit_core_title" class="form-control" value="<%=core_title%>">
+                    </div>
+                    <div class="pt-3  col-md-6 mt-2">
+                        Our Vision Description
+                        <input type="text" name="Edit_core_desc" class="form-control" value="<%=core_desc%>">
+                    </div>
+                    <div class="pt-3  col-md-6 mt-2">
+                        Our Vision Description
+                        <input type="text" name="Edit_core_icons" class="form-control" value="<%=core_icons%>">
+                    </div>
+                    <div class="pt-3  col-md-6 mt-2">
+                        <input type="hidden"  name="core_id" class="form-control" value="<%=core_id%>">
+                    </div>
+                    <div class="col-md-12 mt-5 text-center">
+                        <button class="btn btn-md text-white " style="background-color:red ";>Save Our  Core Infromation</button>
+                    </div>
+                    
+                </div>
+        
+            </div>
+        </form>
+    </div>
+</section>    
+<%- include('footer.ejs') %>

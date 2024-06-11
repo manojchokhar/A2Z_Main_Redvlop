@@ -1,0 +1,46 @@
+<%- include('navbar.ejs') %>
+
+<section>
+
+<div class="container pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/update_founder" method="post" enctype="multipart/form-data">
+<div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+    <div class="row">
+        <div class="pt-3  col-md-12 mt-2 mb-5">
+            <h1 class="text-primary  text-center">Edit Founder Section</h1>
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            <input type="hidden" name="founder_id" value="<%=founder_detail[0].founder_id%>">
+            <input type="hidden" name="current_image" value="<%= founder_detail[0].founder_image %>">
+
+             
+            Founder Image
+            <input type="file" required name="founder_image" class="form-control bg-dark">
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+           <img src="/img/<%=founder_detail[0].founder_image%>" alt="" style="height: 80px; width: 80px;">
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Founder Name
+            <input type="text" required name="founder_name" class="form-control bg-dark" value="<%=founder_detail[0].founder_name%>">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Founder Position
+            <input type="text" required name="founder_position" class="form-control bg-dark" value="<%=founder_detail[0].founder_position%>">
+        </div>
+
+        <div class="col-md-12 mt-5 text-center">
+            <button class="btn btn-md text-white " style="background-color:red ";>Update Explore</button>
+        </div>
+
+    </div>
+
+</div>
+</form>
+</div>
+
+</section>
+
+
+<%- include('footer.ejs') %>

@@ -1,0 +1,101 @@
+<%- include('navbar.ejs') %>
+
+<section>
+
+<div class="container pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/save_landmark" method="post" enctype="multipart/form-data">
+<div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+    <div class="row">
+        <div class="pt-3  col-md-12 mt-2 mb-5">
+            <h1 class="text-primary  text-center">Landmark Section</h1>
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Landmark Title
+            <input type="text" name="landmark_title" class="form-control">
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Landmark Subtitle One
+            <input type="text"  name="landmark_subtitleONe" class="form-control bg-dark">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Landmark Subtitle Two
+            <input type="text"  name="landmark_subtitleTwo" class="form-control bg-dark">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Card Title
+            <input type="text" required name="card_title" class="form-control bg-dark">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Card Logo
+            <input type="file" required name="card_logo" class="form-control bg-dark">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Card Description
+            <input type="text" name="card_desc" class="form-control bg-dark">
+        </div>
+        <div class="col-md-12 mt-5 text-center">
+            <button class="btn btn-md text-white " style="background-color:red ";>Save Landmark</button>
+        </div>
+    </div>
+
+</div>
+</form>
+</div>
+<div class="container p-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+<div class="row">
+    <div class="col-md-12">
+    
+        <h1 class="text-primary  text-center mb-4">Landmark Section</h1>
+
+        <table class="table table-lg border shadow">
+            <tr class="text-center">
+                <th>Action</th>
+                <th>SN</th>
+                <th>Landmark Title</th>
+                <th>Landmark Subtitle One</th>
+                <th>Landmark Subtitle Two</th>
+                <th>Card Title</th>
+                <th>Card Logo</th>
+                <th>Card Description</th>
+            </tr>
+
+         <% 
+         for(i=0;i<landmark_data.length;i++) { %>
+            
+            <tr>
+                <td>
+                    <a href="/admin/edit_landmark/<%=landmark_data[i].landmark_id%>">
+                        <button class="btn btn-primary"><i class="fa fa-edit"></i></button>                        
+                    </a>
+                    <a href="/admin/delete_landmark/<%=landmark_data[i].landmark_id%>" onclick="return confirm('Sure, Delete')">
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>                        
+                    </a>
+                </td>
+
+                <td><%=i+1%></td>
+                <td><%=landmark_data[i].landmark_title%></td>
+                <td><%=landmark_data[i].landmark_subtitleONe%></td>
+                <td><%=landmark_data[i].landmark_subtitleTwo%></td>
+
+                <td><%=landmark_data[i].card_title%></td>
+                <td>
+                    <img src="/img/<%=landmark_data[i].card_logo%>" alt="" style="height: 80px; width: 80px;">
+                </td>
+                <td><%=landmark_data[i].card_desc%></td>
+
+            </tr>
+
+         <% } %>
+      
+        </table>
+    </div>
+</div>
+</div>
+</section>
+
+
+<%- include('footer.ejs') %>

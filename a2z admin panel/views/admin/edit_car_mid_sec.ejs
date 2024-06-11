@@ -1,0 +1,36 @@
+<%- include('navbar.ejs') %>
+
+<section>
+
+<div class="container pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/update_midSec" method="post" enctype="multipart/form-data">
+<div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+    <div class="row">
+        <div class="pt-3  col-md-12 mt-2 mb-5">
+            <h1 class="text-primary  text-center">Edit Middle Section</h1>
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            <input type="hidden" name="car_mid_sec_id" value="<%=career_data[0].car_mid_sec_id%>">
+            Title
+            <input type="text" required name="middle_title" class="form-control bg-dark" value="<%=career_data[0].middle_title%>">
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Logo Link
+            <input type="text" required name="middle_logo" class="form-control bg-dark" value="<%=career_data[0].middle_logo%>">
+        </div>
+
+
+        <div class="col-md-12 mt-5 text-center">
+            <button class="btn btn-md text-white " style="background-color:red ";>Save Explore</button>
+        </div>
+
+    </div>
+
+</div>
+</form>
+</div>
+
+</section>
+
+
+<%- include('footer.ejs') %>

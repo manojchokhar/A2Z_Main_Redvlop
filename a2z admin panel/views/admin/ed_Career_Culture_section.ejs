@@ -1,0 +1,44 @@
+<%- include('navbar.ejs') %>
+
+<section>   
+<div class="container  pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/update_Career_Culture_section" method="post" enctype="multipart/form-data">
+    <div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+        <div class="row">
+            <div class="pt-3  col-md-12 mt-2 mb-5">
+                <h1 class="text-primary  text-center">Edit Culture  Section</h1>
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Culture Heading
+                <input type="text" required name="Edit_culture_heading" class="form-control" value="<%=culture_heading%>">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Culture Title No.1:
+                <input type="text" name="Edit_culture_title1" class="form-control" value="<%=culture_title1%>">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Culture Title No.2:
+                <input type="text" name="Edit_culture_title2" class="form-control" value="<%=culture_title2%>">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Culture Background Image:
+                <input type="file" name="Edit_culture_image" class="form-control">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                <input type="hidden"  name="Edit_culture_id" class="form-control" value="<%=culture_id%>">
+                <input type="hidden" name="current_image" value="<%=culture_image%>">
+
+            </div>
+            <div class="pt-3 col-md-3 mt-2 text-center">
+                <img src="/img/<%=culture_image%>" alt="" style="height: 70px; width: 70px;" >
+            </div>
+            <div class="col-md-12 mt-5 text-center">
+                <button class="btn btn-md text-white " style="background-color:red ";>Save Infromation</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+</div>
+</section>
+<%- include('footer.ejs') %>

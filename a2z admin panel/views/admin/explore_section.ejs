@@ -1,0 +1,89 @@
+<%- include('navbar.ejs') %>
+
+<section>
+
+<div class="container pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/save_explore" method="post" enctype="multipart/form-data">
+<div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+    <div class="row">
+        <div class="pt-3  col-md-12 mt-2 mb-5">
+            <h1 class="text-primary  text-center">Explore Section</h1>
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Explore Title
+            <input type="text" name="explore_title" class="form-control">
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Explore Description
+            <input type="text" required name="explore_desc" class="form-control bg-dark">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Explore Card Image
+            <input type="file" required name="exp_card_img" class="form-control bg-dark">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Explore Card Title
+            <input type="text" required name="exp_card_title" class="form-control bg-dark">
+        </div>
+
+        <div class="col-md-12 mt-5 text-center">
+            <button class="btn btn-md text-white " style="background-color:red ";>Save Explore</button>
+        </div>
+    </div>
+
+</div>
+</form>
+</div>
+<div class="container p-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+<div class="row">
+    <div class="col-md-12">
+    
+        <h1 class="text-primary  text-center mb-4">Explore Section</h1>
+
+        <table class="table table-lg border shadow">
+            <tr class="text-center">
+                <th>Action</th>
+                <th>SN</th>
+                <th>Explore Title</th>
+                <th>Explore Description</th>
+                <th>Explore Card Image</th>
+                <th>Explore Card Title</th>
+            </tr>
+
+            <%
+            for(i=0;i<explore_data.length;i++) { %>
+
+                <tr>
+                    <td>
+                        <a href="/admin/edit_explore/<%=explore_data[i].explore_id%>">
+                            <button class="btn btn-primary"><i class="fa fa-edit"></i></button>                        
+                        
+                        </a>
+                        <a href="/admin/delete_explore/<%=explore_data[i].explore_id%>" onclick="return confirm('Sure,Delete')">
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>                        
+                        
+                        </a>
+                    </td>
+
+                    <td><%=i+1%></td>
+                    <td><%=explore_data[i].explore_title%></td>
+                    <td><%=explore_data[i].explore_desc%></td>
+                    <td>
+                        <img src="/img/<%=explore_data[i].exp_card_img%>" alt="" style="height: 80px; width: 80px;">
+                    </td>
+                    <td><%=explore_data[i].exp_card_title%></td>
+
+                </tr>
+
+           <% } %>
+      
+        </table>
+    </div>
+</div>
+</div>
+</section>
+
+
+<%- include('footer.ejs') %>

@@ -1,0 +1,37 @@
+<%- include('navbar.ejs') %>
+
+<div class="container pt-5 pb-5 mt-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <h1 class="text-center mb-4">Doctors Information</h1> -->
+            <h1 class="text-primary  text-center mb-4">Contact  Section Information</h1>
+
+            <table class="table table-lg border shadow">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Person Name</th>
+                    <th>Person Email</th>
+                    <th>Person Subject</th>
+                    <th>Person Message</th>
+                </tr>
+                <% for(var i=0;i<contact.length;i++){ %>
+                    <tr class="">
+                        <td>
+                            <a href="/admin/delete_contact_infomation_section/<%=contact[i].contact_id%>" onclick="return confirm('Sure delete')">
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                        </td>
+                        <td><%=i+1%></td>
+                        <td><%=contact[i].contact_person_name%></td>
+                        <td><%=contact[i].contact_person_email%></td>
+                        <td><%=contact[i].contact_person_subject%></td>
+                        <td><%=contact[i].contact_person_message%></td>
+                        
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include('footer.ejs') %>

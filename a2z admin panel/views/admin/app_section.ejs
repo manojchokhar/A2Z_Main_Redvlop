@@ -1,0 +1,82 @@
+<%- include('navbar.ejs') %>
+
+<section>
+
+<div class="container pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/save_app" method="post" enctype="multipart/form-data">
+<div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+    <div class="row">
+        <div class="pt-3  col-md-12 mt-2 mb-5">
+            <h1 class="text-primary  text-center">Application Section</h1>
+        </div>
+        <div class="pt-3  col-md-4 mt-2">
+            Application Title
+            <input type="text" name="app_title" class="form-control">
+        </div>
+        <div class="pt-3  col-md-4 mt-2">
+            Application Subtitle
+            <input type="text" name="app_subtitle" class="form-control">
+        </div>
+        <div class="pt-3  col-md-4 mt-2">
+            Application Discription
+            <input type="text" name="app_desc" class="form-control">
+        </div>
+        <div class="pt-3  col-md-4 mt-2">
+            Application Image
+            <input type="file" required name="app_image" class="form-control bg-dark">
+        </div>
+        <div class="col-md-12 mt-5 text-center">
+            <button class="btn btn-md text-white " style="background-color:red ";>Save Unlock</button>
+        </div>
+    </div>
+
+</div>
+</form>
+</div>
+<div class="container p-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+<div class="row">
+    <div class="col-md-12">
+ 
+        <h1 class="text-primary  text-center mb-4">Front Section</h1>
+
+        <table class="table table-lg border shadow">
+            <tr class="text-center">
+                <th>Action</th>
+                <th>SN</th>
+                <th>Application Title</th>
+                <th>Application Image</th>
+            </tr>
+
+            <%
+            for(i=0;i<app_data.length;i++) { %>
+
+                <tr>
+                    <td>
+                        <a href="/admin/edit_app/<%=app_data[i].app_id%>">
+                        <button class="btn btn-primary"><i class="fa fa-edit"></i></button>                                
+                        </a>
+                        <a href="/admin/delete_app/<%=app_data[i].app_id%>" onclick="return confirm('Sure,Delete')">
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>                            
+                        </a>
+                    </td>
+
+                    <td><%=i+1%></td>
+                    <td><%=app_data[i].app_title%></td>
+                    <td><%=app_data[i].app_subtitle%></td>
+                    <td><%=app_data[i].app_desc%></td>
+                    <td>
+                        <img src="/img/<%=app_data[i].app_image%>" alt="" style="height: 80px; width: 80px;">
+                    </td>
+
+                </tr>
+
+           <% } %>
+      
+        </table>
+    </div>
+</div>
+</div>
+</section>
+
+
+<%- include('footer.ejs') %>

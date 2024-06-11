@@ -1,0 +1,80 @@
+<%- include('navbar.ejs') %>
+
+<section>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div> -->
+
+   
+<div class="container  pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/save_Career_Front_section" method="post" enctype="multipart/form-data">
+    <div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+        <div class="row">
+            <div class="pt-3  col-md-12 mt-2 mb-5">
+                <h1 class="text-primary  text-center">Career Front Section</h1>
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Career Page Title
+                <input type="text" name="Career_Title" class="form-control">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Career Page description
+                <input type="text" name="Career_Desc" class="form-control">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Career background Image
+                <input type="file" required name="Career_bg_image" class="form-control bg-dark">
+            </div>
+            <div class="col-md-12 mt-5 text-center">
+                <button class="btn btn-md text-white " style="background-color:red ";>Save Infromation</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+</div>
+<div class="container p-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <h1 class="text-center mb-4">Doctors Information</h1> -->
+            <h1 class="text-primary  text-center mb-4">Career Front Section Information</h1>
+
+            <table class="table table-lg border shadow">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Career Page Title</th>
+                    <th>Career Page Description</th>
+                    <th>Career Page Background Images</th>
+                </tr>
+                <% for(var i=0;i<Career.length;i++){ %>
+                    <tr class="">
+                        <td>
+                            <a href="/admin/edit_Career_Front_section/<%=Career[i].career_id%>">
+                            <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                            </a>
+                            <a href="/admin/delete_Career_Front_section/<%=Career[i].career_id%>">
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                        </td>
+                        <td><%=i+1%></td>
+                        <td><%=Career[i].career_title%></td>
+                        <td><%=Career[i].career_desc%></td>
+                        <td>
+                            <img src="/img/<%=Career[i].career_image%>" width="200px">
+                            </td>
+                        
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+</section>
+
+
+<%- include('footer.ejs') %>

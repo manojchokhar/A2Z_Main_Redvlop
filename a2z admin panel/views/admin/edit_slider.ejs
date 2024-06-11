@@ -1,0 +1,37 @@
+<%- include('navbar.ejs') %>
+
+<section>
+    <div class="container pb-5 pt-5" style="width: 90%;">
+        <form action="/admin/update_slider" method="post" enctype="multipart/form-data">
+            <div class="container p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;">
+                <div class="row">
+                    <div class="pt-3 col-md-12 mt-2 mb-5">
+                        <h1 class="text-primary text-center">Edit Slider</h1>
+                    </div>
+                    <div class="pt-3 col-md-6 mt-2">
+                        <input type="hidden" name="slider_id" value="<%= slider_data[0].slider_id %>">
+                        <input type="hidden" name="current_image" value="<%= slider_data[0].slider_image %>">
+                        Slider Title
+                        <input type="text" name="slider_title" class="form-control" value="<%= slider_data[0].slider_title %>">
+                    </div>
+                    <div class="pt-3 col-md-6 mt-2">
+                        Slider Description
+                        <input type="text" required name="slider_description" class="form-control bg-dark" value="<%= slider_data[0].slider_description %>">
+                    </div>
+                    <div class="pt-3 col-md-6 mt-2">
+                        Slider Image
+                        <input type="file" name="slider_image" class="form-control bg-dark">
+                    </div>
+                    <div class="pt-3 col-md-6 mt-2 text-center">
+                        <img src="/img/<%= slider_data[0].slider_image %>" alt="" style="height: 70px; width: 70px;">
+                    </div>
+                    <div class="col-md-12 mt-5 text-center">
+                        <button class="btn btn-md text-white" style="background-color:red;">Save Slider</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<%- include('footer.ejs') %>

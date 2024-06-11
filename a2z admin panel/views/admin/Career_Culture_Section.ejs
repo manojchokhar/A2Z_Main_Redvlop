@@ -1,0 +1,127 @@
+<%- include('navbar.ejs') %>
+
+<section>   
+<div class="container  pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/save_Career_Culture_section" method="post" enctype="multipart/form-data">
+    <div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+        <div class="row">
+            <div class="pt-3  col-md-12 mt-2 mb-5">
+                <h1 class="text-primary  text-center">Our Culture  Section</h1>
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Culture Heading
+                <input type="text" required name="culture_heading" class="form-control">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Culture Title No.1:
+                <input type="text" name="culture_title1" class="form-control">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Culture Title No.2:
+                <input type="text" name="culture_title2" class="form-control">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Culture Background Image:
+                <input type="file" name="Culture_bg_image" class="form-control">
+            </div>
+            <div class="col-md-12 mt-5 text-center">
+                <button class="btn btn-md text-white " style="background-color:red ";>Save Infromation</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+</div>
+<div class="container pb-5 pt-3" style="width: 90%;">
+<form action="/admin/save_Career_Culture_key_factors" method="post" enctype="multipart/form-data">
+    <div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+        <div class="row">
+            <div class="pt-3  col-md-12 mt-2 mb-5">
+                <h1 class="text-primary  text-center">Our Culture Key Factors</h1>
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Add Key Factors Points
+                <input type="text" required name="Culture_key_factors_points" class="form-control">
+            </div>
+           
+            <div class="col-md-12 mt-5 text-center">
+                <button class="btn btn-md text-white " style="background-color:red ";>Save  Infromation</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+</div>
+
+
+<div class="container pt-5 pb-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <h1 class="text-center mb-4">Doctors Information</h1> -->
+            <h1 class="text-primary  text-center mb-4">Our Culture Section Information</h1>
+
+            <table class="table table-lg border shadow">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Our Culture Heading</th>
+                    <th> Our Culture Title No.1</th>
+                    <th> Our Culture Title No.2</th>
+                    <th> Our Culture Background Image</th>
+                </tr>
+                <% for(var i=0;i<Culture.length;i++){ %>
+                    <tr class="">
+                        <td>
+                            <a href="/admin/edit_Career_Culture_section/<%=Culture[i].culture_id%>">
+                            <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                            </a>
+                            <a href="/admin/delete_Career_Culture_section/<%=Culture[i].culture_id%>">
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                        </td>
+                        <td><%=i+1%></td>
+                        <td><%=Culture[i].culture_heading%></td>
+                        <td><%=Culture[i].culture_title1%></td>
+                        <td><%=Culture[i].culture_title2%></td>
+                        <td>
+                            <img src="/img/<%=Culture[i].culture_image%>" width="200px">
+                            </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+    </div>
+</div>        
+<div class="container pt-5 pb-5 mt-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <h1 class="text-center mb-4">Doctors Information</h1> -->
+            <h1 class="text-primary  text-center mb-4">Our Culture key Factors Information</h1>
+
+            <table class="table table-lg border shadow">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Key Factors Points</th>
+                   
+                </tr>
+                <% for(var i=0;i<Data.length;i++){ %>
+                    <tr class="">
+                        <td>
+                            <a href="/admin/delete_Career_Culture_key_factors/<%=Data[i].culture_key_factors_id%>">
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                        </td>
+                        <td><%=i+1%></td>
+                        <td><%=Data[i].culture_key_factors_points%></td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<%- include('footer.ejs') %>

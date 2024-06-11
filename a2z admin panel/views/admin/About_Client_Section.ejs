@@ -1,0 +1,126 @@
+<%- include('navbar.ejs') %>
+<section>
+    <div class="container pb-5 pt-5" style="width: 90%;">
+      <form action="/admin/save_About_client_review_Information" method="post" enctype="multipart/form-data">
+        <div class="container p-5 bg-secondary navbar-dark" style="box-shadow: 0px 5px 10px red;">
+           <div class="row">
+               <div class="col-md-12 mt-2 mb-5 pt-3">
+                <h1 class="text-primary text-center">Client Review Section</h1>
+               </div>
+               <div class="col-md-6 mt-2 pt-3">
+                   Client name
+                   <input type="text" required name="Client_name" class="form-control">
+               </div>
+               <div class="col-md-6 mt-2 pt-3">
+                 Client Post(work)
+                <input type="text" required name="Client_post" class="form-control">
+            </div>
+            <div class="col-md-6 mt-2 pt-3">
+                Client Review(description)
+                <input type="text" required name="Client_desc" class="form-control">
+            </div>
+            <div class="col-md-12 mt-5 text-center">
+                <button class="btn btn-md text-white" style="background-color: red;">Save Client Review Information</button>
+            </div>
+           </div>
+        </div>
+      </form>
+    </div>
+    <div class="container pb-5 pt-3" style="width: 90%;">
+        <form action="/admin/save_About_Company_logo_Information" method="post" enctype="multipart/form-data">
+            <div class="container p-5 bg-secondary navbar-dark" style="box-shadow: 0px 5px 10px red;">
+               <div class="row">
+                   <div class="col-md-12 mt-2 mb-5 pt-3">
+                    <h1 class="text-primary text-center">Worked Company Logos</h1>
+                   </div>
+                   <div class="col-md-6 mt-2 pt-3">
+                    Company Name
+                    <input type="text" required name="Company_name" class="form-control">
+                </div>
+                   <div class="col-md-6 mt-2 pt-3">
+                       Attach Logo Image
+                       <input type="file" required name="Client_Company_logo" class="form-control">
+                   </div>
+                   
+                 
+                <div class="col-md-12 mt-5 text-center">
+                    <button class="btn btn-md text-white" style="background-color: red;">Save Client Review Information</button>
+                </div>
+               </div>
+            </div>
+          </form>
+    </div>
+
+    <div class="container p-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <h1 class="text-center mb-4">Doctors Information</h1> -->
+                <h1 class="text-primary  text-center mb-4">Client Review Information</h1>
+    
+                <table class="table table-lg border shadow">
+                    <tr>
+                        <th>Action</th>
+                        <th>SN</th>
+                        <th>Client Name</th>
+                        <th>Client Post</th>
+                        <th>CLient Review Description</th>
+                    </tr>
+                    <% for(var i=0;i<client1.length;i++){ %>
+                        <tr class="">
+                            <td>
+                                <a href="/admin/edit_About_client_section/<%=client1[i].client_id%>">
+                                <button class="btn btn-primary" ><i class="fa fa-edit"></i></button>
+                                </a>
+                                <a href="/admin/delete_About_client_section/<%=client1[i].client_id%>" onclick="return confirm('Sure Delete')">
+                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                </a>
+                            </td>
+                            <td><%=i+1%></td>
+                            <td><%=client1[i].client_name%></td>
+                            <td><%=client1[i].client_post%></td>
+                            <td><%=client1[i].client_review_desc%></td>
+            
+                        </tr>
+                        <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div class="container p-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <h1 class="text-center mb-4">Doctors Information</h1> -->
+                <h1 class="text-primary  text-center mb-4">Company logo Information</h1>
+    
+                <table class="table table-lg border shadow">
+                    <tr>
+                        <th>Action</th>
+                        <th>SN</th>
+                        <th>Company Name</th>
+                        <th>Company Logo</th>
+                        
+                    </tr>
+                    <% for(var i=0;i<logo.length;i++){ %>
+                        <tr class="">
+                            <td>
+                                <a href="/admin/delete_About_logo_section/<%=logo[i].company_id%>">
+                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                </a>
+                            </td>
+                            <td><%=i+1%></td>
+                            <td><%=logo[i].company_name%></td>
+                            <td>
+                                <img src="/img/<%=logo[i].company_logo_image%>" width="200px">
+                                </td>
+            
+                        </tr>
+                        <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<%- include('footer.ejs') %>

@@ -1,0 +1,78 @@
+<%- include('navbar.ejs') %>
+
+<section>
+
+<div class="container  pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/save_slider" method="post" enctype="multipart/form-data">
+<div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+    <div class="row">
+        <div class="pt-3  col-md-12 mt-2 mb-5">
+            <h1 class="text-primary  text-center">Slider</h1>
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Slider Title
+            <input type="text" name="slider_title" class="form-control">
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Slider Description
+            <input type="text" required name="slider_description" class="form-control bg-dark">
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Slider Image
+            <input type="file" required name="slider_image" class="form-control bg-dark">
+        </div>
+        <div class="col-md-12 mt-5 text-center">
+            <button class="btn btn-md text-white " style="background-color:red ";>Save Slider</button>
+        </div>
+    </div>
+
+</div>
+</form>
+</div>
+<div class="container p-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+<div class="row">
+    <div class="col-md-12">
+        <!-- <h1 class="text-center mb-4">Doctors Information</h1> -->
+        <h1 class="text-primary  text-center mb-4">Front Section</h1>
+
+        <table class="table table-lg border shadow">
+            <tr class="text-center">
+                <th>Action</th>
+                <th>SN</th>
+                <th>Slider Title</th>
+                <th>Slider Description</th>
+                <th>Slider Image</th>
+            </tr>
+
+            <%
+            for (i=0;i<slider_data.length;i++) { %>
+                
+                <tr class="text-center">
+                    <td>
+                        <a href="/admin/edit_slider/<%=slider_data[i].slider_id%>">
+                            <!-- <button class="btn btn-outline-warning btn-sm"><i class="fa-regular fa-pen-to-square"></i></button> -->
+                        <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+
+                        </a>
+                        <a href="/admin/delete_slider/<%=slider_data[i].slider_id%>" onclick="return confirm('Are You Sure, Delete')">
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            <!-- <button class="btn btn-outline-danger btn-sm"><i class="fa-regular fa-trash-can"></i></button> -->
+                        </a>
+                    </td>
+                    <td><%=i+1%></td>
+                    <td><%=slider_data[i].slider_title%></td>
+                    <td><%=slider_data[i].slider_description%></td>
+                    <td>
+                        <img src="/img/<%=slider_data[i].slider_image%>" alt="slider_image" style="height: 70px; width: 70px;">
+                    </td>
+
+                </tr>
+            <% } %>
+        </table>
+    </div>
+</div>
+</div>
+</section>
+
+
+<%- include('footer.ejs') %>

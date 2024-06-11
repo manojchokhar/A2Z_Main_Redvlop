@@ -1,0 +1,80 @@
+<%- include('navbar.ejs') %>
+
+<section>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div> -->
+
+   
+<div class="container  pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/save_About_Our_Core" method="post" enctype="multipart/form-data">
+    <div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+        <div class="row">
+            <div class="pt-3  col-md-12 mt-2 mb-5">
+                <h1 class="text-primary  text-center">Our Core Section</h1>
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Core Title
+                <input type="text" required name="core_title" class="form-control">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Core Description
+                <input type="text" name="core_desc" class="form-control">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Core icons(enter class of icons from iframe tag)
+                <input type="text" name="core_icons" class="form-control">
+            </div>
+            <div class="col-md-12 mt-5 text-center">
+                <button class="btn btn-md text-white " style="background-color:red ";>Save Our  core Infromation</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+</div>
+
+
+<div class="container pt-5 pb-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <h1 class="text-center mb-4">Doctors Information</h1> -->
+            <h1 class="text-primary  text-center mb-4">Our Core Information</h1>
+
+            <table class="table table-lg border shadow">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Our Core Title</th>
+                    <th>Our Core Description</th>
+                    <th>Our Core Icons</th>
+                </tr>
+                <% for(var i=0;i<core.length;i++){ %>
+                    <tr class="">
+                        <td>
+                            <a href="/admin/edit_About_Our_Core/<%=core[i].core_id%>">
+                            <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                            </a>
+                            <a href="/admin/delete_About_Our_Core/<%=core[i].core_id%>">
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                        </td>
+                        <td><%=i+1%></td>
+                        <td><%=core[i].core_title%></td>
+                        <td><%=core[i].core_desc%></td>
+                        <td><%=core[i].core_icons%></td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+    </div>
+</div>        
+
+</section>
+
+
+<%- include('footer.ejs') %>

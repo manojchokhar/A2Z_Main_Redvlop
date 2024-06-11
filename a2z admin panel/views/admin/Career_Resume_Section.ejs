@@ -1,0 +1,75 @@
+<%- include('navbar.ejs') %>
+
+<section>   
+<div class="container  pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/save_Career_resume_section" method="post" enctype="multipart/form-data">
+    <div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+        <div class="row">
+            <div class="pt-3  col-md-12 mt-2 mb-5">
+                <h1 class="text-primary  text-center">Add Resume Information Section</h1>
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Resume Page Heading
+                <input type="text" required name="resume_heading" class="form-control">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Resume Page Title
+                <input type="text" name="resume_title" class="form-control" >
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Resume Page Share Link
+                <input type="text" name="resume_link" class="form-control" >
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Resume Page Background Image:
+                <input type="file" name="resume_image" class="form-control" >
+            </div>
+            <div class="col-md-12 mt-5 text-center">
+                <button class="btn btn-md text-white " style="background-color:red ";>Save Infromation</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+</div>
+
+<div class="container pt-5 pb-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <h1 class="text-center mb-4">Doctors Information</h1> -->
+            <h1 class="text-primary  text-center mb-4">Resume Section Information</h1>
+
+            <table class="table table-lg border shadow">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Resume Page Heading</th>
+                    <th> Resume Page Title</th>
+                    <th>  Resume Page Share Link</th>
+                    <th> Resume Page Background Image</th>
+                </tr>
+                <% for(var i=0;i<resume.length;i++){ %>
+                    <tr class="">
+                        <td>
+                            <a href="/admin/edit_Career_resume_section/<%=resume[i].resume_id%>">
+                            <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                            </a>
+                            <a href="/admin/delete_Career_resume_section/<%=resume[i].resume_id%>">
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                        </td>
+                        <td><%=i+1%></td>
+                        <td><%=resume[i].resume_heading%></td>
+                        <td><%=resume[i].resume_title%></td>
+                        <td><%=resume[i].resume_link%></td>
+                        <td>
+                            <img src="/img/<%=resume[i].resume_image%>" width="200px">
+                            </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+    </div>
+</div> 
+</section>
+<%- include('footer.ejs') %>

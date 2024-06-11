@@ -1,0 +1,129 @@
+<%- include('navbar.ejs') %>
+
+<section>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div> -->
+
+   
+<div class="container  pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/save_Our_Mission_section" method="post" enctype="multipart/form-data">
+    <div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+        <div class="row">
+            <div class="pt-3  col-md-12 mt-2 mb-5">
+                <h1 class="text-primary  text-center">Our Mission Section</h1>
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Mission Title
+                <input type="text" required name="Mission_title" class="form-control">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Mission Description
+                <input type="text" name="Mission_desc" class="form-control">
+            </div>
+            <div class="col-md-12 mt-5 text-center">
+                <button class="btn btn-md text-white " style="background-color:red ";>Save Our  Mission Infromation</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+</div>
+<div class="container pb-5 pt-3" style="width: 90%;">
+<form action="/admin/save_Our_Vision_section" method="post" enctype="multipart/form-data">
+    <div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+        <div class="row">
+            <div class="pt-3  col-md-12 mt-2 mb-5">
+                <h1 class="text-primary  text-center">Our Vision Section</h1>
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Vision Title
+                <input type="text" required name="Vision_title" class="form-control">
+            </div>
+            <div class="pt-3  col-md-6 mt-2">
+                Our Vision Description
+                <input type="text" name="Vision_desc" class="form-control">
+            </div>
+            <div class="col-md-12 mt-5 text-center">
+                <button class="btn btn-md text-white " style="background-color:red ";>Save Our Vision Infromation</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+</div>
+
+
+<div class="container pt-5 pb-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <h1 class="text-center mb-4">Doctors Information</h1> -->
+            <h1 class="text-primary  text-center mb-4">Our Mission Section</h1>
+
+            <table class="table table-lg border shadow">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Mission Title</th>
+                    <th>Mission Description</th>
+                </tr>
+                <% for(var i=0;i<mission.length;i++){ %>
+                    <tr class="">
+                        <td>
+                            <a href="/admin/edit_Our_Mission_section/<%=mission[i].mission_id%>">
+                            <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                            </a>
+                            <a href="/admin/delete_Our_Mission_section/<%=mission[i].mission_id%>">
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                        </td>
+                        <td><%=i+1%></td>
+                        <td><%=mission[i].mission_title%></td>
+                        <td><%=mission[i].mission_desc%></td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+    </div>
+</div>        
+<div class="container pt-5 pb-5 mt-5 shadow bg-secondary navbar-dark" style="width: 90%;box-shadow:0px 5px 10px red !important;">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <h1 class="text-center mb-4">Doctors Information</h1> -->
+            <h1 class="text-primary  text-center mb-4">Our Vision Section</h1>
+
+            <table class="table table-lg border shadow">
+                <tr>
+                    <th>Action</th>
+                    <th>SN</th>
+                    <th>Vision Title</th>
+                    <th>Vision Description</th>
+                </tr>
+                <% for(var i=0;i<vision.length;i++){ %>
+                    <tr class="">
+                        <td>
+                            <a href="/admin/edit_Our_Vision_section/<%=vision[i].vision_id%>">
+                            <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                            </a>
+                            <a href="/admin/delete_Our_Vision_section/<%=vision[i].vision_id%>">
+                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+                        </td>
+                        <td><%=i+1%></td>
+                        <td><%=vision[i].vision_title%></td>
+                        <td><%=vision[i].vision_desc%></td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<%- include('footer.ejs') %>

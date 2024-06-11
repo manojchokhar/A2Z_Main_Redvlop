@@ -1,0 +1,59 @@
+<%- include('navbar.ejs') %>
+
+<section>
+
+<div class="container pb-5 pt-5 " style="width: 90%;">
+<form action="/admin/update_landmark" method="post" enctype="multipart/form-data">
+<div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+    <div class="row">
+        <div class="pt-3  col-md-12 mt-2 mb-5">
+            <input type="hidden" name="landmark_id" value="<%=landmark_data[0].landmark_id%>">
+            <input type="hidden" name="current_image" value="<%= landmark_data[0].card_logo %>">
+
+            <h1 class="text-primary  text-center">Edit Landmark Section</h1>
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Landmark Title
+            <input type="text" name="landmark_title" class="form-control" value="<%=landmark_data[0].landmark_title%>">
+        </div>
+        <div class="pt-3  col-md-6 mt-2">
+            Landmark Subtitle One
+            <input type="text"  name="landmark_subtitleONe" class="form-control bg-dark" value="<%=landmark_data[0].landmark_subtitleONe%>">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Landmark Subtitle Two
+            <input type="text"  name="landmark_subtitleTwo" class="form-control bg-dark" value="<%=landmark_data[0].landmark_subtitleTwo%>">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Card Title
+            <input type="text"  name="card_title" class="form-control bg-dark" value="<%=landmark_data[0].card_title%>">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Card Logo
+            <input type="file"  name="card_logo" class="form-control bg-dark">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2 text-center">
+           <img src="/img/<%=landmark_data[0].card_logo%>" alt="" style="height: 8-px; width: 80px;">
+        </div>
+
+        <div class="pt-3  col-md-6 mt-2">
+            Card Description
+            <input type="text"  name="card_desc" class="form-control bg-dark" value="<%=landmark_data[0].card_desc%>">
+        </div>
+        <div class="col-md-12 mt-5 text-center">
+            <button class="btn btn-md text-white " style="background-color:red ";>Update Landmark</button>
+        </div>
+    </div>
+
+</div>
+</form>
+</div>
+
+</section>
+
+
+<%- include('footer.ejs') %>

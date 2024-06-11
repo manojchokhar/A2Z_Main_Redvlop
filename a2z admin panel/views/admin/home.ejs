@@ -1,0 +1,32 @@
+<%- include('navbar.ejs') %>
+<style>
+    .welcome h1{
+        font-size: 70px;
+        
+    }
+    .outlined-text {
+        color: black;
+        text-shadow: 
+            -1px -1px 0 red,  
+            1px -1px 0 red,
+            -1px 1px 0 red,
+            1px 1px 0 red;  
+    }
+</style>
+<section class="pt-5">
+
+<div class="container pb-5 pt-5 " style="width: 90%;box-shadow:0px 5px 10px 5px red;">
+    <div class="row">
+        <div class="col-md-12 text-center pt-5 pb-5 welcome">
+            <h1 class="outlined-text">Welcome</h1>
+            <h1 class="outlined-text">To</h1>
+            <h1 class="outlined-text">Admin Panel</h1>
+        </div>
+    </div>
+ 
+</div>
+
+</section>
+
+
+<%-include('footer.ejs') %>

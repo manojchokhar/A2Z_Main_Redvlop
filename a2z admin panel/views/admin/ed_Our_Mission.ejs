@@ -1,0 +1,31 @@
+<%- include('navbar.ejs') %>
+
+<section>
+    <div class="container  pb-5 pt-5 " style="width: 90%;">
+        <form action="/admin/update_Our_Mission_section" method="post" enctype="multipart/form-data">
+            <div class="container  p-5 bg-secondary navbar-dark" style="box-shadow:0px 5px 10px red;" >
+                <div class="row">
+                    <div class="pt-3  col-md-12 mt-2 mb-5">
+                        <h1 class="text-primary  text-center">Our Mission Section</h1>
+                    </div>
+                    <div class="pt-3  col-md-6 mt-2">
+                        Our Mission Title
+                        <input type="text" required name="Edit_Mission_title" class="form-control" value="<%=mission_title%>">
+                    </div>
+                    <div class="pt-3  col-md-6 mt-2">
+                        Our Mission Description
+                        <input type="text" name="Edit_Mission_desc" class="form-control" value="<%=mission_desc%>">
+                    </div>
+                    <div class="col-md-12 mt-5 text-center">
+                        <button class="btn btn-md text-white " style="background-color:red ";>Save Our  Mission Infromation</button>
+                    </div>
+                    <div class="pt-3  col-md-6 mt-2">
+                        <input type="hidden"  name="mission_id" class="form-control" value="<%=mission_id%>">
+                    </div>
+                </div>
+        
+            </div>
+        </form>
+    </div>
+</section>    
+<%- include('footer.ejs') %>
